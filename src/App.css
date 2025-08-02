@@ -1,0 +1,24 @@
+.homepage {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  text-align: center;
+  background: #f7f7f7;
+  color: #333;
+}
+
+header {
+  background-color: #004d40;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #666;
+}
