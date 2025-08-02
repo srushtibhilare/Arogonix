@@ -1,0 +1,199 @@
+:root {
+  /* Color Variables */
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --text-dark: #2c3e50;
+  --text-medium: #495057;
+  --text-light: #6c757d;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --focus-ring: 0 0 0 3px rgba(52, 152, 219, 0.1);
+
+  /* Spacing Variables */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Typography */
+  --text-base: 1rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --text-sm: 0.9rem;
+
+  /* Borders */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --transition-base: all 0.3s ease;
+}
+
+/* Base Styles */
+.contact-section {
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--bg-light);
+  text-align: center;
+  border-radius: var(--radius-lg);
+  margin: var(--space-lg) auto;
+  max-width: 1200px;
+  box-shadow: var(--shadow-md);
+  width: 90%;
+}
+
+.contact-heading {
+  color: var(--text-dark);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+/* Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  text-align: left;
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+  font-weight: 500;
+}
+
+/* Input Fields */
+.form-input,
+.form-textarea {
+  padding: var(--space-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  transition: var(--transition-base);
+  width: 100%;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Button Styles */
+.submit-button {
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-base);
+  margin-top: var(--space-xs);
+}
+
+.submit-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+/* Validation States */
+.form-input:invalid:not(:placeholder-shown),
+.form-textarea:invalid:not(:placeholder-shown) {
+  border-color: #e74c3c;
+}
+
+.form-input:valid:not(:placeholder-shown),
+.form-textarea:valid:not(:placeholder-shown) {
+  border-color: #2ecc71;
+}
+
+/* Loading State */
+.submit-button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.submit-button.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--white);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: var(--space-lg) var(--space-sm);
+    margin: var(--space-sm);
+    border-radius: var(--radius-md);
+    width: auto;
+  }
+
+  .contact-heading {
+    font-size: var(--text-lg);
+  }
+
+  .contact-form {
+    padding: var(--space-md);
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-dark: #f8f9fa;
+    --text-medium: #e9ecef;
+    --bg-light: #212529;
+    --white: #343a40;
+    --border-color: #495057;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-form {
+    background-color: var(--white);
+  }
+}
